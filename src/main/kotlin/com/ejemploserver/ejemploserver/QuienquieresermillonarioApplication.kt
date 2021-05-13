@@ -6,15 +6,14 @@ import org.springframework.boot.runApplication
 
 
 @SpringBootApplication
-class EjemploserverApplication
+class EjercicioquienquieresermillonarioApplication
 
-@Autowired
-lateinit var tareaRepository: TareaRepository
+
 
 
 fun main(args: Array<String>) {
 	println("Comenzamos el servidor")
-	runApplication<EjemploserverApplication>(*args)
+	runApplication<EjercicioquienquieresermillonarioApplication>(*args)
 	println("Creación del servidor completada")
 
 }

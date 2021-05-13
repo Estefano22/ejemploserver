@@ -3,16 +3,18 @@ package com.ejemploserver.ejemploserver
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.swing.text.StyledEditorKit
 
 // Entity nos dice que Tarea es una clase y también será una tabla de nuestra BBDD.
 @Entity
-class Tarea(
-    var titulo : String,
-    var detalles : String = "",
-    var esFavorita : Boolean,
-    var fechaCreacion : Long = System.currentTimeMillis(),
-    var fechaEdicion : Long = fechaCreacion) {
+data class Preguntas(
+    var  preguntas : String,
+    var op1 : String,
+    var op2 : String,
+    var op3 : String,
+
+){
+
+
 
     @Id
     @GeneratedValue
@@ -20,7 +22,12 @@ class Tarea(
 
 
     override fun toString(): String {
-        return "La tarea con id = $id contiene a $titulo"
+        val listadeOpciones = mutableListOf(op1,op2,op3)
+        listadeOpciones.shuffle() // shuffle te lo pone aleatorio
+        return "Pregunta $id: $preguntas,\n $listadeOpciones \n"
     }
 
 }
+
+
+
