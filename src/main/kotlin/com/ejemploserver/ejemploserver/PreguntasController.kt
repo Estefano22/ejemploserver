@@ -3,6 +3,7 @@ package com.ejemploserver.ejemploserver
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RestController
+import kotlin.random.Random
 
 class PreguntasController {
 
@@ -10,14 +11,12 @@ class PreguntasController {
     class TareaController(private val preguntasRepository: PreguntasRepository) {
 
         @GetMapping("/GetPreguntas")
-        fun getTareas() : List<Preguntas> {
-            println("Se ha recibido un GetTareas")
-            val list = PreguntasRepository.findAll()
+        fun getPreguntas() : List<Preguntas> {
+            println("Se ha recibido un GetPreguntas")
+            val list = preguntasRepository.findAll()
             println(list)
             return list
         }
-
-
 
 
         @GetMapping("/getPreguntasById/{id}")
@@ -31,6 +30,18 @@ class PreguntasController {
                 throw PreguntaNoEncontradaException(id)
             }
         }
+
+        @GetMapping("/GetPreguntasAleatoria")
+        fun getPreguntasAleatoria() : List<Preguntas> {
+            println("Se ha recibido un GetPreguntas")
+            val list = preguntasRepository.findAll()
+            val mutableList = list.toMutableList()
+            mutableList.shuffle()
+            println(mutableList)
+            return (mutableList)
+        }
+
+
 
 
     }
