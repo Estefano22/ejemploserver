@@ -22,7 +22,7 @@ class PreguntasController {
         @GetMapping("/getPreguntasById/{id}")
         fun getPreguntasById(@PathVariable id : Long) : Preguntas {
             try {
-                println("Se ha recibido un GetTareaById")
+                println("Se ha recibido un GetPreguntasById")
                 val Preguntas = preguntasRepository.getOne(id)
                 println(Preguntas)
                 return Preguntas
@@ -32,17 +32,16 @@ class PreguntasController {
         }
 
         @GetMapping("/GetPreguntasAleatoria")
-        fun getPreguntasAleatoria() : List<Preguntas> {
-            println("Se ha recibido un GetPreguntas")
+        fun getPreguntasAleatoria() : Preguntas {
+            println("Se ha recibido un GetPreguntasAleatorias")
             val list = preguntasRepository.findAll()
             val mutableList = list.toMutableList()
             mutableList.shuffle()
-            println(mutableList)
-            return (mutableList)
+            println(mutableList.toString().replace("[", "").replace("]","").replace(",",""))
+            println(mutableList[0]) //para mostrar solo un elemento de la lista
+            return mutableList[0]
+
         }
-
-
-
 
     }
 }

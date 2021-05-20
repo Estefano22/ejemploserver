@@ -11,7 +11,6 @@ data class Preguntas(
     var op1 : String,
     var op2 : String,
     var op3 : String,
-
 ){
 
 
@@ -23,8 +22,10 @@ data class Preguntas(
 
     override fun toString(): String {
         val listadeOpciones = mutableListOf(op1,op2,op3)
-        listadeOpciones.shuffle() // shuffle te lo pone aleatorio
-        return "Pregunta $id: $preguntas,\n $listadeOpciones \n"
+        // listadeOpciones.shuffle() // shuffle te lo pone aleatorio
+        return "Pregunta $id : $preguntas,\n $listadeOpciones \n"
+
+
     }
 
 }
