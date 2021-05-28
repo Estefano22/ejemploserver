@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.bind.annotation.ResponseStatus
 
-class PreguntaNoEncontradaException(id: Long) : RuntimeException("La tarea con id = $id no existe.")
+class PreguntaNoEncontradaException(id: Long) : RuntimeException("La pregunta con id = $id no existe.")
 
 @ControllerAdvice
 class PreguntaNoEncontrada {

@@ -7,7 +7,7 @@ import javax.persistence.Id
 data class Usuarios (@Id var nombre: String ){
 
     override fun toString(): String {
-        return " El  $nombre es "
+        return " El usuario creado es $nombre "
     }
 
 }

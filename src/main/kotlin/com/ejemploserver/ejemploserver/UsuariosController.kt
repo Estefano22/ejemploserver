@@ -10,8 +10,9 @@ class UsuariosController( private val usuariosRepository: UsuariosRepository) {
 
     @GetMapping("/GetCrearusuarios/{usuarios}")
     fun getCrearusuarios(@PathVariable usuarios: String) : Usuarios {
-        println("Se ha creado el usuarios")
+        println("Se ha creado el usuario")
         val usuario = Usuarios("" + usuarios)
+        println("El usuario se ha creado correctamente")
         usuariosRepository.save(usuario)
         println(usuario)
         return usuario

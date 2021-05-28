@@ -25,15 +25,11 @@ class PreguntasController {
         }
 
 
-        @GetMapping("/getPreguntasById/{id}/{usuarios}")
+        @GetMapping("/GetPreguntasById/{id}/{usuarios}")
         fun getPreguntasById(@PathVariable id : Long , @PathVariable usuarios: String) : Preguntas {
             try {
                 println("Se ha recibido un GetPreguntasById")
                 val Preguntas = preguntasRepository.getOne(id)
-                val Usuarios = UsuariosRepository.getOne(usuarios)
-                println(Preguntas)
-                println(Usuarios)
-                return Preguntas
 
             } catch (e: Exception) {
                 throw PreguntaNoEncontradaException(id)
@@ -41,9 +37,10 @@ class PreguntasController {
 
             try {
                 val Usuarios = UsuariosRepository.getOne(usuarios)
-                println(Usuarios)
-                return usuarios
-            } catch (e: Exception) {
+                val Preguntas = preguntasRepository.getOne(id)
+                println(Preguntas)
+                return Preguntas
+            }catch (e:Exception){
                 throw UsuarioNoEncontradoException(usuarios)
             }
 
